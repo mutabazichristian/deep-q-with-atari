@@ -42,13 +42,13 @@ class DeepQ:
         return env
 
     def train_model(self, policy_type, model_name):
-        """Train DQN agent with specified policy"""
+        """train deep agent with specic"""
         print(f"\n=== Training DQN with {policy_type} ===")
 
-        # Create environment
+        # Create env
         env = self.create_env()
 
-        # Create DQN model
+        # Create model
         model = DQN(
             policy=policy_type,
             env=env,
@@ -95,11 +95,10 @@ class DeepQ:
         # Save final model
         model.save(f"{model_name}_final")
 
-        # Clean up
         env.close()
         eval_env.close()
 
-        # Store results
+        # Save results
         self.results[policy_type] = {
             "model": model,
             "training_time": training_time,
