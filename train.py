@@ -6,6 +6,7 @@ from stable_baselines3 import DQN
 from stable_baselines3.common.env_util import make_atari_env
 from stable_baselines3.common.vec_env import VecFrameStack
 from stable_baselines3.common.callbacks import EvalCallback
+from stable_baselines3.common.vec_env import VecTransposeImage
 
 """
 CNN and MLP Policies comparison
@@ -22,7 +23,7 @@ let's test this and see
 
 class DeepQ:
     def __init__(
-        self, env_name="ALE/Breakout-v5", total_timesteps=30000, seed=42
+        self, env_name="ALE/Breakout-v5", total_timesteps=50000, seed=42
     ):
         """init"""
         self.env_name = env_name
@@ -47,30 +48,36 @@ class DeepQ:
 
         # Create env
         env = self.create_env()
+        eval_env = self.create_env()
+
+        # apply VecTransposeImage if using CnnPolicy
+        if policy_type == "CnnPolicy":
+            env = VecTransposeImage(env)
+            eval_env = VecTransposeImage(eval_env)
 
         # Create model
         model = DQN(
             policy=policy_type,
             env=env,
-            learning_rate=5e-5,
-            buffer_size=50000,
+            learning_rate=2e-5,
+            buffer_size=20000,
             learning_starts=1000,
-            batch_size=16,
+            batch_size=64,
             tau=1.0,
-            gamma=0.92,
+            gamma=0.90,
             train_freq=4,
             gradient_steps=1,
             target_update_interval=1000,
             exploration_fraction=0.1,
             exploration_initial_eps=1.0,
-            exploration_final_eps=0.01,
+            exploration_final_eps=0.05,
             max_grad_norm=10,
             verbose=1,
             seed=self.seed,
         )
 
         # Set up evaluation callback
-        eval_env = self.create_env()
+        # eval_env = self.create_env()
         eval_callback = EvalCallback(
             eval_env,
             best_model_save_path=f"./models/{model_name}",
@@ -202,7 +209,7 @@ def main():
     """Main function"""
     # Create trainer instance
     trainer = DeepQ(
-        env_name="ALE/Breakout-v5", total_timesteps=30000, seed=42
+        env_name="ALE/Breakout-v5", total_timesteps=50000, seed=42
     )
 
     # Train both policies

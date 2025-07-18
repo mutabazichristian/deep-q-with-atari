@@ -11,6 +11,7 @@ import numpy as np
 # env = gym.make("ALE/Breakout-v5", render_mode='human')
 # use render mode to get visual, But it will slow down game play
 # env = gym.make('ALE/Breakout-v5',render_mode='human')
+
 # Custom wrapper to make ALE/Breakout-v5 work like SB3
 def make_custom_atari_env():
     env = gym.make("ALE/Breakout-v5", render_mode='human')
