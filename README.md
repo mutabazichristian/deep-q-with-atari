@@ -1,9 +1,10 @@
 # DEEP Q-Learning Project (DQN)
---
-## Project overview
+----
+## 1. Project overview
 In order to practice more about DQN, we have been tasked to trains a reinforcement learning agent that plays an Atari game using DQN. The main goal is to explore how different hyper-parameters affect training performance and compare policy types (MLP vs CNN) using ```Stable Baselines3``` and ```Gymnasium``. The agent is later evaluated by watching it play the game using a ε-greedy policy.
 
-## Project structure
+## 2. Project structure
+```bash
 deep-q-with-atari/
     ├── train.py       # Train the agent
     ├── play.py        # Play with trained agent
@@ -11,13 +12,12 @@ deep-q-with-atari/
     ├── README.md      # Project overview
     ├── models/        # Trained models (CNN and MLP)
     └── logs/          # Training logs for TensorBoard
-
+```
 #### Environment used:
 ``` bash
 env = gym.make("ALE/Breakout-v5", render_mode="human")
 ```
-## Agent Behavior evaluation
-## 🔧 Hyperparameter Tuning Table
+## Agent Behavior Evaluation (Tuning Table)
 
 | Hyperparameter Set | Noted Behavior |
 |--------------------|----------------|
@@ -27,7 +27,7 @@ env = gym.make("ALE/Breakout-v5", render_mode="human")
 
 
 
-## Installation:
+## 3. Installation:
 1. Creating virtual environment.
 2. Clone repo from main-branch:
 ```bash
@@ -42,18 +42,16 @@ alternatively to install requirements
 pip install "gymnasium[atari]" ale-py stable-baselines3[extra]
 ```
 4. After installing the requirements, Run this files:
-* 
 ```bash
-    python train.py
+python train.py
 ```
-* 
+and then;
 ```bash
 python play.py
 ```
 
-
-## Done by:
+## 4. Done by:
 + Christian M.
++ Willy K.
 + Audry A. Chivanga
 + Pascal M.
-+ Willy K.
