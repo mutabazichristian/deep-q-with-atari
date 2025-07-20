@@ -30,6 +30,9 @@ This section captures and compares the agent's performance using different hyper
 | `lr=5e-4`, `gamma=0.90`, `batch_size=64`, `epsilon_start=1.0`, `epsilon_end=0.05`, `epsilon_decay` | The agent finished episodes quickly and earned near-zero rewards. Its actions were inconsistent, suggesting undertraining or ineffective learning due to possibly insufficient timesteps. |
 | `lr=2e-5`, `gamma=0.99`, `batch_size=32`, `epsilon_start=1.0`, `epsilon_end=0.05`, `exploration_fraction=0.3` (with `timesteps=150000`) | The agent demonstrated improved learning. It was able to reach rewards of up to `+5`, with more frequent scores of `+2` and `+1`, showing a noticeable improvement in stability and performance. While still inconsistent in places, this setup yielded the most balanced results. |
 
+[img-1.jpg](https://postimg.cc/YhHbxXxb)
+[img-2.jpg](https://postimg.cc/23v0hpn1)
+
 ## 4. Hyperparameter Tuning Discussion
 
 From the hyperparameter experiments summarized above, several key insights were gathered:
