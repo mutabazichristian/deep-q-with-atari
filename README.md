@@ -17,7 +17,6 @@ deep-q-with-atari/
 env = gym.make("ALE/Breakout-v5", render_mode="human")
 ```
 ## Agent Behavior evaluation
-## 🔧 Hyperparameter Tuning Table
 
 | Hyperparameter Set | Noted Behavior |
 |--------------------|----------------|
