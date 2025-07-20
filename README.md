@@ -77,7 +77,41 @@ python play.py
 
 Click the image above or watch directly [on YouTube](https://www.youtube.com/watch?feature=shared&v=214xwcZ8j5g).
 
-## 7. Done by:
+
+## 7. Group Collaboration & Contributions
+
+We worked in **pairs** to implement and compare two DQN agents (CNN and MLP policies) on the Atari game *Breakout*. Our focus was on training, evaluating, and selecting the best-performing model using Stable-Baselines3.
+
+###  Individual Contributions
+
+- **Christian & Willy**  
+  - Developed `train.py` which sets up the environment, trains policies, and evaluates them.
+  - Selected the game (Breakout-v5), set up project structure, and wrote model training logic.
+
+- **Audry & Pascal**  
+  - Focused on model import and evaluation logic in `play.py`, integrating the final trained agent and building a gameplay loop.
+  - Helped with documentation and tuning hyperparameters during training and evaluation.
+
+###  Team Collaboration
+Although we worked in pairs, we had **frequent short sync-ups** to support each other and unblock issues. This included:
+- Debugging training instability
+- Sharing results and evaluation metrics
+- Deciding which policy to save as final (`dqn_model.zip`)
+
+###  Challenges Faced
+- Handling unstable training with MLP due to poor performance on spatial data
+- Navigating and wrapping the Atari environments correctly using Gym and ALE
+- Rendering slowed down gameplay, making tuning and evaluation slightly harder
+- Resolving environment compatibility between `gymnasium`, `stable_baselines3`, and `ale_py`
+
+### Key Files
+
+- `train.py`: Full training pipeline with CNN vs MLP comparison, model saving, and logging.
+- `play.py`: Loads `dqn_model.zip` and runs a 1000-step simulation with performance output.
+
+
+
+## 8. Done by:
 + Christian M.
 + Willy K.
 + Audry A. Chivanga
