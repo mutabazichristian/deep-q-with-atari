@@ -23,7 +23,7 @@ let's test this and see
 
 class DeepQ:
     def __init__(
-        self, env_name="ALE/Breakout-v5", total_timesteps=150000, seed=123
+        self, env_name="ALE/Breakout-v5", total_timesteps=250000, seed=123
     ):
         """init"""
         self.env_name = env_name
@@ -59,16 +59,16 @@ class DeepQ:
         model = DQN(
             policy=policy_type,
             env=env,
-            learning_rate=2e-5,
+            learning_rate=1e-4,
             buffer_size=20000,
             learning_starts=1000,
             batch_size=32,
             tau=1.0,
-            gamma=0.98,
+            gamma=0.99,
             train_freq=4,
             gradient_steps=1,
             target_update_interval=1000,
-            exploration_fraction=0.3,
+            exploration_fraction=0.1,
             exploration_initial_eps=1.0,
             exploration_final_eps=0.05,
             max_grad_norm=10,
@@ -209,7 +209,7 @@ def main():
     """Main function"""
     # Create trainer instance
     trainer = DeepQ(
-        env_name="ALE/Breakout-v5", total_timesteps=150000, seed=123
+        env_name="ALE/Breakout-v5", total_timesteps=250000, seed=123
     )
 
     # Train both policies
